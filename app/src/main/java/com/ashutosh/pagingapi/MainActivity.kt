@@ -29,13 +29,13 @@ class MainActivity : ComponentActivity() {
                     ) {
                         val navController = rememberNavController()
 
-                        NavHost(navController = navController , startDestination = "Splash") {
+                        NavHost(navController = navController , startDestination = "splash") {
 
-                            composable("Splash") {
+                            composable("splash") {
                                 SplashScreen(navController, this@MainActivity)
                             }
 
-                            composable("HomeGraph") {
+                            composable("main") {
                                 PagingPage(this@MainActivity)
                             }
 
