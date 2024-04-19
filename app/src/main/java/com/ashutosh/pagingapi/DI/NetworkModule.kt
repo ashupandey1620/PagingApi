@@ -1,6 +1,7 @@
 package com.ashutosh.pagingapi.DI
 
 import com.ashutosh.pagingapi.API.PagingApi
+import com.ashutosh.pagingapi.Utils.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -32,7 +33,7 @@ class NetworkModule {
     @Provides
     @Named("retrofit")
     fun providesRetrofit(): Retrofit {
-        return Retrofit.Builder().baseUrl("")
+        return Retrofit.Builder().baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(providesOkHttpClient())
             .build()

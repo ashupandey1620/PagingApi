@@ -1,11 +1,15 @@
 package com.ashutosh.pagingapi.ViewModel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.ashutosh.pagingapi.Model.PostResponseItem
 import com.ashutosh.pagingapi.Repository.Repository
+import com.google.gson.Gson
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -16,6 +20,26 @@ class MainViewModel @Inject  constructor(
     val getPosts: LiveData<List<PostResponseItem>> = _getPosts
 
 
+    fun getPostsFromNetwork() {
+        viewModelScope.launch {
+            try {
+                val result = repository.getPosts()
+
+                // Map ResponseData of post
+                result?.let { responseData ->
+                    val posts = responseData.map { data ->
+                        PostResponseItem(data.body,
+                            data.id,
+                            data.title,
+                            data.userId)
+                    }
+                    _getPosts.postValue(posts)
+                }
+            } catch (e: Exception) {
+                Log.d("Error Occurred While inserting or updating the Posts",e.toString())
+            }
+        }
+    }
 
 
 }
