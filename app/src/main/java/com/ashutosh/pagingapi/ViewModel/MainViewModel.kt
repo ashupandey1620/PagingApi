@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ashutosh.pagingapi.Model.PostResponseItem
-import com.ashutosh.pagingapi.Repository.Repository
+import com.ashutosh.pagingapi.data.Repository.Repository
 import com.google.gson.Gson
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -14,7 +14,10 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject  constructor(
-    private val repository: Repository) : ViewModel(){
+    private val repository: Repository
+) : ViewModel(){
+
+    val getAllPosts = repository.getAllPosts()
 
     private val _getPosts = MutableLiveData<List<PostResponseItem>>()
     val getPosts: LiveData<List<PostResponseItem>> = _getPosts
