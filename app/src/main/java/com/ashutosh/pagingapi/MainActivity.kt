@@ -36,7 +36,7 @@ class MainActivity : ComponentActivity() {
                             }
 
                             composable("main") {
-                                PagingPage(this@MainActivity)
+                                PagingPage(navController,this@MainActivity)
                             }
 
                         }
