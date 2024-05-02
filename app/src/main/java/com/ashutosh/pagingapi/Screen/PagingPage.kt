@@ -57,7 +57,7 @@ import com.ashutosh.pagingapi.ViewModel.MainViewModel
 @Composable
 fun PagingPage(navController: NavHostController , mainActivity: MainActivity) {
 
-    val context = LocalContext.current.applicationContext
+
 
     val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.loading))
     val progress by animateLottieCompositionAsState(composition = composition, restartOnPlay = true,
@@ -161,8 +161,6 @@ fun PagingPage(navController: NavHostController , mainActivity: MainActivity) {
 
             }
         )
-
-
 }
 
 
@@ -186,9 +184,7 @@ fun ColumnItemRegisteredEvent(
         .background(Color(0xFFfdc044))
         .clickable {
             show = !show
-        }
-        ,
-
+        },
         ){
 
 

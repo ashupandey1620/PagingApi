@@ -34,8 +34,6 @@ import com.ashutosh.pagingapi.R
 @Composable
 fun Toolbar(navController: NavController) {
 
-
-
     Column {
         Row(
             modifier = Modifier
@@ -62,25 +60,25 @@ fun Toolbar(navController: NavController) {
                     .wrapContentWidth() ,
             ) {
 
-                Text(
-                    modifier = Modifier
-                        .wrapContentSize() ,
-                    textAlign = TextAlign.Center ,
-                    fontSize = 14.sp ,
-                    lineHeight = 15.sp ,
-                    text = "Assignment By:" ,
-                    fontWeight = FontWeight.Bold
-                )
-
-                Text(
-                    modifier = Modifier
-                        .wrapContentSize() ,
-                    textAlign = TextAlign.Center ,
-                    fontSize = 12.sp ,
-                    lineHeight = 13.sp ,
-                    text = "Ashutosh Pandey" ,
-                    fontWeight = FontWeight.Bold
-                )
+//                Text(
+//                    modifier = Modifier
+//                        .wrapContentSize() ,
+//                    textAlign = TextAlign.Center ,
+//                    fontSize = 14.sp ,
+//                    lineHeight = 15.sp ,
+//                    text = "Assignment By:" ,
+//                    fontWeight = FontWeight.Bold
+//                )
+//
+//                Text(
+//                    modifier = Modifier
+//                        .wrapContentSize() ,
+//                    textAlign = TextAlign.Center ,
+//                    fontSize = 12.sp ,
+//                    lineHeight = 13.sp ,
+//                    text = "Ashutosh Pandey" ,
+//                    fontWeight = FontWeight.Bold
+//                )
 
             }
 
