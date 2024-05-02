@@ -18,6 +18,12 @@ interface DataDao {
 
     @Query("DELETE FROM DATA_TABLE")
     suspend fun deleteAllPosts()
+
+    @Query("DELETE FROM DATA_TABLE WHERE userId= :id")
+    fun deleteParticularPosts(id: String)
+
+    @Query("DELETE FROM DATA_TABLE WHERE userId != :id")
+    fun deleteOtherPosts(id: String)
+
+
 }
-
-

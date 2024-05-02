@@ -73,8 +73,6 @@ class PagingRemoteMediator(
         }
     }
 
-
-
     private suspend fun getRemoteKeyClosestToCurrentPosition(
         state: PagingState<Int, PostData>
     ): RemoteKeys? {
@@ -85,13 +83,12 @@ class PagingRemoteMediator(
         }
     }
 
-
     private suspend fun getRemoteKeyForFirstItem(
         state: PagingState<Int, PostData>
     ): RemoteKeys? {
         return state.pages.firstOrNull { it.data.isNotEmpty() }?.data?.firstOrNull()
-            ?.let { unsplashImage ->
-                pagingRemoteKeysDao.getRemoteKeys(id = unsplashImage.id)
+            ?.let { item ->
+                pagingRemoteKeysDao.getRemoteKeys(id = item.id)
             }
     }
 
@@ -99,12 +96,10 @@ class PagingRemoteMediator(
         state: PagingState<Int, PostData>
     ): RemoteKeys? {
         return state.pages.lastOrNull { it.data.isNotEmpty() }?.data?.lastOrNull()
-            ?.let { unsplashImage ->
-                pagingRemoteKeysDao.getRemoteKeys(id = unsplashImage.id)
+            ?.let { item ->
+                pagingRemoteKeysDao.getRemoteKeys(id = item.id)
             }
     }
-
-
 
 }
 
